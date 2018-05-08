@@ -1,0 +1,29 @@
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "cheese.hunt"
+        version   = "0.9.9.8">
+
+    <icon src="icon.png" />
+
+    <name>Cheese Hunt</name>
+
+    <description>
+        Help guide the rat out of the maze and collect the cheese
+    </description>
+
+    <author href="symonhambrey.worcestercomputing.com" email="symonhambrey@gmail.com">
+        WBS Computing
+    </author>
+
+    <preference name="Orientation" value="portrait" />
+
+    <preference name="phonegap-version" value="cli-7.0.1" />
+
+    <preference name="permissions" value="none"/>
+
+	  <access origin="*"/>
+
+   	<plugin name="cordova-plugin-whitelist" version="1" />
+
+</widget>

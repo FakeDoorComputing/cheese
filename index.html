@@ -1,0 +1,153 @@
+<!-- Cheese Hunt (C) 2016-2018
+AUTHOR: Symon Hambrey
+Game Files - screen_size.js -->
+
+<!-- images courtesy of www.pixabay.com
+
+Door image:
+OpenClipart-Vectors
+https://pixabay.com/en/door-entrance-front-door-entry-575971/
+
+Cheese image:
+OpenClipart-Vectors
+https://pixabay.com/en/cheese-food-yellow-edamer-gourmet-1295585/
+
+Trap image:
+Bloodymediocrity
+https://pixabay.com/en/mouse-trap-mousetrap-rodent-pest-1638339/
+
+Speaker icon:
+OpenIcons
+https://pixabay.com/en/mute-speaker-off-silent-quiet-98510/
+
+Buttons
+Pixaline
+https://pixabay.com/en/labels-sticker-button-ball-bubble-1356419/
+
+-->
+
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <title>Cheese Hunt</title>
+    <!-- Meta data -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <!-- Style links -->
+    <link rel="stylesheet" type="text/css" href="files/css/game.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu:bold" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <!-- Scripts -->
+	  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="files/js/variables.js"></script>
+    <script src="files/js/game_start.js"></script>
+    <script src="files/js/screen_size.js"></script>
+    <script src="files/js/welcome.js"></script>
+    <script src="files/js/game.js"></script>
+    <script src="files/js/checks.js"></script>
+    <script src="files/js/panels.js"></script>
+	  <script src="files/js/motion.js"></script>
+  </head>
+
+  <body>
+    <div data-role="page" id="titleScreen">
+      <a href="#welcomeScreen" data-transition="flip"><img alt="rat image" class="pics" id="pic" src="files/graphics/rat.png"/></a>
+      <img alt="rat" class="pics" id="left" src="files/graphics/leftRat.png"/>
+      <img alt="escape" class="pics" id="right" src="files/graphics/escape.png"/>
+      <p id="tap_me">Tap to start</p>
+    </div>
+
+    <div data-role="page" id="welcomeScreen">
+      <div id="welcomeText">
+        <p class="title">Welcome to Cheese Hunt!</p>
+        <p class="intro">Roland has found himself stuck in a maze.<br/>Collect the cheese, but avoid the traps! Escape from the maze<br/>Tilt your device to control Roland<br/></p>
+        <p class="title">Choose a difficulty to begin</p>
+      </div>
+      <div id="difficulty">
+        <a href="#gameScreen" data-transition="flip"><img alt="easy button" id="easy" class="diff_butt" src="files/graphics/EasyButton.png"/></a></br>
+        <a href="#gameScreen" data-transition="flip"><img alt="medium button" id="medium" class="diff_butt" src="files/graphics/MediumButton.png"/></a></br>
+        <a href="#gameScreen" data-transition="flip"><img alt="hard button" id="hard" class="diff_butt" src="files/graphics/HardButton.png"/></a>
+      </div>
+      <div id="continue_option">
+        </br>
+        <p class="title">There is a save file available</p>
+        <p class="title">Would you like to load it?</p>
+        <a><img class="middle_buttons" id="continue_game_button" src="files/graphics/continue_game.png" /></a>
+      </div>
+    </div>-->
+
+    <div data-role="page" id="gameScreen">
+
+      <div data-role="panel" id="pausePanel" data-display="overlay">
+        </br>
+        <span class="left_gap"><img id="sound_icon" src="files/graphics/sound_on.png"/>&nbsp;Paused</span>
+        <p class="short_gap" id="level_display_panel"></p>
+        <p class="short_gap" id="score_display_panel"></p>
+        </br>
+        <div id="button_placement">
+          <img id="menu_button" class="panel_buttons" src="files/graphics/bluebutton.png"/>
+          <img id="exit_button" class="panel_buttons" src="files/graphics/redbutton.png"/>
+        </div>
+      </div>
+
+      <div data-role="panel" id="level_complete_panel" data-display="overlay" data-dismissable="false" data-swipe-close="false" data-position="right">
+        <h1 class="middle" id="level_cleared"> Level Cleared! </h1>
+        <h1 class="middle"> Cheese Rating </h1>
+        <p id="no_cheese">No cheeses!</p>
+        <div id="cheese_score">
+          <img class="cheese_image" id="cheese1" src="files/graphics/cheese.png"/>
+          <img class="cheese_image" id="cheese2" src="files/graphics/cheese.png"/>
+          <img class="cheese_image" id="cheese3" src="files/graphics/cheese.png"/></br></br>
+          <div id="score_display_area">
+            <p class="score_area" id="level_bonus"></p>
+            <p class="score_area" id="cheese_bonus"></p>
+            <p class="score_area" id="time_bonus"></p>
+            <p class="score_area" id="lives_bonus"></p>
+            <p class="score_area" id="level_score"></p></br>
+          </div>
+        </div>
+        <div id="button_placeholder">
+        </div>
+      </div>
+
+      <div data-role="header" data-position="fixed" id="header">
+        <a href="#pausePanel"><img id="pauseButton" src="files/graphics/pauseSmall.png"/></a>
+        <p class="headerText1">Lives :</p>
+        <p class="headerText1" id="lives_display_header"></p>
+        <p class="headerText1" id="time_display_header">Time :</p>
+        <p class="headerText1" id="seconds_display"></p>
+      </div>
+
+      <div id="container" data-role="main" class="ui-content">
+        <div id="gamebox">
+          <canvas id="gameArea"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <div data-role="page" id="endScreen">
+      <div id="gameOverText">
+        <img class="textImage" id="game_text" src="files/graphics/game.png"/>
+        <img class="textImage" id="over_text" src="files/graphics/over.png"/>
+        <img class="textImage" id="extra_text" src="files/graphics/extra.png"/>
+        <img class="textImage" id="life_text" src="files/graphics/life.png"/>
+        <h1 class="end_text" id="final_score"></h1>
+        <h1 class="end_text" id="last_act">Press <a id="end_ok" href="game.html">OK</a> to restart the game</h1>
+      </div>
+    </div>
+
+    <div data-role="page" id="life_lost">
+      </br>
+      <h1 class="middle" id="reason_for_loss">You ran out of time!</h1>
+      <h1 class="middle" id="middle_text"> Life lost </h1>
+      <h1 class="middle" id="num_lives_left"></h1>
+      <img id="continue_from_life" class="middle_buttons" src="files/graphics/continue.png"/>
+    </div>
+
+  </body>
+
+</html>
