@@ -48,7 +48,3 @@ function round(number, precision) {
   };
   return shift(Math.round(shift(number, precision, false)), precision, true);
 }
-
-function get_keyboard(){
-  console.log(key);
-}

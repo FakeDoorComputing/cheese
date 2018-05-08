@@ -2,7 +2,7 @@
 AUTHOR: Symon Hambrey
 Game Files - game.js */
 
-//var ev, key, y_value=0, z_value=0, testflag=0; // NOTE: remove this when complete
+var ev, key, y_value=0, z_value=0, testflag=0; // NOTE: remove this when complete
 //time=time_choice[1]; // NOTE remove this when finished
 get_player();
 total_levels=level.length-1;
@@ -58,7 +58,7 @@ $(document).on("pagecreate","#gameScreen",function(){
 })
 
 // get keyboard input for developing
-$(window).keypress(function(e) {
+/*$(window).keypress(function(e) {
   var ev = e;
   var key = ev.keyCode;
   switch(key){
@@ -76,7 +76,7 @@ $(window).keypress(function(e) {
       break;
   }
 console.log("px: "+player[0]+" py: "+player[1])
-})
+})*/
   /*
   function move(dir){
 
@@ -127,7 +127,7 @@ function game_screen(){
     }
 
     draw_maze();
-  //  testflag=1; // NOTE: remove this when done
+   // testflag=1; // NOTE: remove this when done
     draw_player();
 
     update_stats();
@@ -161,7 +161,7 @@ function draw_maze(){
   cv1.fillStyle="#78AB46";
   cv1.fill();
 
-  //draw_grid(); // NOTE remove for final game
+ // draw_grid(); // NOTE remove for final game
   // draw walls
   for(i=0;i<level[levelNo].xStrt.length;i++){
     cv1.beginPath();
